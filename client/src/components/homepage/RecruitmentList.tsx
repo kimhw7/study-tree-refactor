@@ -27,6 +27,7 @@ const RecruitmentList: React.FC<StudiesButtonProps> = ({ scrollRef }) => {
   }, []);
   // 필터링 api요청
   // refactor - search querystring으로 필터링 구현(useSearchParams)
+  // custom hook사용
   useEffect(() => {
     fetch(tags, filter, search, page);
   }, [tags, filter, search, page]);
