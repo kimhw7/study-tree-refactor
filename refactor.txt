@@ -1,2 +1,9 @@
 1. 필터링 query params로 변경
+-> 현재: 
+        zustand 전역 상태 관리로 검색, 정렬, 필터, 무한스크롤페이지 상태 관리중
+        useEffect로 해당 상태 변경 시 다시 요청
+  
+   수정: 무한스크롤 -> react query로 변경
+        필터링 -> query params로 변경
+
 2. 채팅 react query로 1초마다 받아오기
