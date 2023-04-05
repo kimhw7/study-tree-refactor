@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import RecruitmentList from "../components/homepage/RecruitmentList";
 import Banner from "../components/homepage/Banner";
@@ -10,6 +11,7 @@ import TagFilter from "../components/homepage/TagFilter";
 const HomePage: React.FC = () => {
   const myRef = useRef<HTMLDivElement>(null);
   const studiesRef = useRef<HTMLDivElement>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const scrollToCreate = () => {
     if (!myRef.current) {
