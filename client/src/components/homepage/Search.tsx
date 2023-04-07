@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState, KeyboardEvent } from "react";
 import { MdOutlineBackspace } from "react-icons/md";
+import useSetSearchParams from "../../hooks/useSetSearchParams";
 
 import HomeStore from "../../util/zustandHome";
 
