@@ -8,12 +8,13 @@ import HomeStore from "../../util/zustandHome";
 const Search = () => {
   const { setSearch, search } = HomeStore();
   const [searchValue, setSearchValue] = useState("");
-  const [paramSearch, setParamSearch] = useSetSearchParams();
+  const { paramSearch, setParamSearch } = useSetSearchParams();
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       if (searchValue !== search) {
         setSearch(searchValue);
+        setParamSearch(searchValue);
       }
     }
   };

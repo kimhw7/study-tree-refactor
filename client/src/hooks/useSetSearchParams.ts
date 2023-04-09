@@ -30,7 +30,7 @@ const useSetSearchParams = () => {
     });
   };
 
-  return [filter, setFilter, paramSearch, setParamSearch, tags, setTags];
+  return { filter, setFilter, paramSearch, setParamSearch, tags, setTags };
 };
 
 export default useSetSearchParams;
