@@ -4,10 +4,12 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 import Tags from "./Tags";
 import HomeStore from "../../util/zustandHome";
+import useSetSearchParams from "../../hooks/useSetSearchParams";
 
 const TagFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { setFilter, filter, isLoading } = HomeStore();
+  const { paramFilter, setParamFilter } = useSetSearchParams();
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -16,6 +18,9 @@ const TagFilter = () => {
   const handleFiterClick = (clickedFilter: string) => {
     if (!isLoading)
       filter === clickedFilter ? setFilter("") : setFilter(clickedFilter);
+    filter === clickedFilter
+      ? setParamFilter("")
+      : setParamFilter(clickedFilter);
   };
 
   return (
