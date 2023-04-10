@@ -15,8 +15,6 @@ const RecruitmentList: React.FC<StudiesButtonProps> = ({ scrollRef }) => {
     isLoading,
     tags,
     page,
-    filter,
-    search,
     recruitmentData,
     totalPage,
     fetch,
@@ -32,13 +30,24 @@ const RecruitmentList: React.FC<StudiesButtonProps> = ({ scrollRef }) => {
   // custom hook사용
 
   useEffect(() => {
+    setRecruitment([]);
+    fetch(
+      tags,
+      paramFilter === null ? "" : paramFilter,
+      paramSearch === null ? "" : paramSearch,
+      1
+    );
+  }, [tags, paramFilter, paramSearch]);
+
+  useEffect(() => {
+    if (page <= 1) return;
     fetch(
       tags,
       paramFilter === null ? "" : paramFilter,
       paramSearch === null ? "" : paramSearch,
       page
     );
-  }, [tags, paramFilter, paramSearch, page]);
+  }, [page]);
 
   const handleScroll = useCallback((): void => {
     const { innerHeight } = window;
