@@ -1,19 +1,16 @@
 import styled from "styled-components";
 import { useState, KeyboardEvent } from "react";
 import { MdOutlineBackspace } from "react-icons/md";
+
 import useSetSearchParams from "../../hooks/useSetSearchParams";
 
-import HomeStore from "../../util/zustandHome";
-
 const Search = () => {
-  const { setSearch, search } = HomeStore();
   const [searchValue, setSearchValue] = useState("");
   const { paramSearch, setParamSearch } = useSetSearchParams();
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      if (searchValue !== search) {
-        setSearch(searchValue);
+      if (searchValue !== paramSearch) {
         setParamSearch(searchValue);
       }
     }
@@ -33,7 +30,7 @@ const Search = () => {
             <div
               onClick={() => {
                 setSearchValue("");
-                setSearch("");
+                setParamSearch("");
               }}
               className="iconWrapper"
             >

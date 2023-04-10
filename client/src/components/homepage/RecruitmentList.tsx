@@ -26,14 +26,19 @@ const RecruitmentList: React.FC<StudiesButtonProps> = ({ scrollRef }) => {
   useEffect(() => {
     setRecruitment([]);
   }, []);
-
+  const { paramFilter, paramSearch } = useSetSearchParams();
   // 필터링 api요청
   // refactor - search querystring으로 필터링 구현(useSearchParams)
   // custom hook사용
 
   useEffect(() => {
-    fetch(tags, filter, search, page);
-  }, [tags, filter, search, page]);
+    fetch(
+      tags,
+      paramFilter === null ? "" : paramFilter,
+      paramSearch === null ? "" : paramSearch,
+      page
+    );
+  }, [tags, paramFilter, paramSearch, page]);
 
   const handleScroll = useCallback((): void => {
     const { innerHeight } = window;
